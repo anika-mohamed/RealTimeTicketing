@@ -1,0 +1,63 @@
+<div class="ticket-container">
+  <h1>Ticket Configuration</h1>
+
+  <form (ngSubmit)="saveTicketConfiguration()">
+    <div class="form-group">
+      <label for="totalTickets">Total Tickets</label>
+      <input
+        id="totalTickets"
+        type="number"
+        [(ngModel)]="ticketData.totalTickets"
+        name="totalTickets"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="ticketReleaseRate">Ticket Release Rate</label>
+      <input
+        id="ticketReleaseRate"
+        type="number"
+        [(ngModel)]="ticketData.ticketReleaseRate"
+        name="ticketReleaseRate"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="customerRetrievalRate">Customer Retrieval Rate</label>
+      <input
+        id="customerRetrievalRate"
+        type="number"
+        [(ngModel)]="ticketData.customerRetrievalRate"
+        name="customerRetrievalRate"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="maxTicketCapacity">Max Ticket Capacity</label>
+      <input
+        id="maxTicketCapacity"
+        type="number"
+        [(ngModel)]="ticketData.maxTicketCapacity"
+        name="maxTicketCapacity"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="button-group">
+      <button type="button" (click)="startTicketSimulation()" class="btn btn-success">Start Simulation</button>
+      <button type="submit" class="btn btn-primary">Save Configuration</button>
+      <button type="button" (click)="stopTicketSimulation()" class="btn btn-danger">Stop Simulation</button>
+    </div>
+  </form>
+
+  <div *ngIf="statusMessage" [ngClass]="alertClass" class="status-message">
+    {{ statusMessage }}
+  </div>
+</div>
